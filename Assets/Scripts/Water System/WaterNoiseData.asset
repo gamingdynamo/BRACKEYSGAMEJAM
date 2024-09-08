@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d80f1a1b1c16c04881eee12130b7fa2, type: 3}
+  m_Name: WaterNoiseData
+  m_EditorClassIdentifier: 
+  frequency1: 0.5
+  amplitude1: 0.2
+  direction1: {x: 1, y: 0.5}
+  frequency2: 0.8
+  amplitude2: 0.1
+  direction2: {x: -0.5, y: 1}
+  frequency: 1.69
+  amplitude: 103.9
+  speed: 0.5
