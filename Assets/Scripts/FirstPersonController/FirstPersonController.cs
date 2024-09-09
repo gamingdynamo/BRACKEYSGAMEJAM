@@ -200,7 +200,7 @@ public class FirstPersonController : MonoBehaviour
 
     float camRotation;
 
-    private void Update()
+    private void LateUpdate()
     {
         #region Camera
 
