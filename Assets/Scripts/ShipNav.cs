@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -22,14 +23,19 @@ public class ShipNav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-            if (Input.GetMouseButtonDown(0))
-            {
-                destPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-                destPoint = new Vector3(destPoint.x, 0,destPoint.z);
-                destPoint = LerpByDistance(transform.position, destPoint, 30f);
-                destPoint = destPoint - transform.position;
-            }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            bool hit = Physics.Raycast(cam.transform.position, cam.transform.forward,out RaycastHit hitInfo, Mathf.Infinity, -1, QueryTriggerInteraction.Ignore);
+            if (!hit)
+                return;
+
+            destPoint = hitInfo.point;
+            Debug.DrawRay(destPoint, Vector3.up * 5, Color.red,2);
+            destPoint = new Vector3(destPoint.x, 0, destPoint.z);
+            destPoint = LerpByDistance(transform.position, destPoint, 30f);
+            destPoint = destPoint - transform.position;
+        }
         
         targetRotation= Quaternion.LookRotation(destPoint);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
