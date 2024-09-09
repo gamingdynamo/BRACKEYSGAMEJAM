@@ -1,24 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class InteractionComponent : MonoBehaviour
 {
-    [SerializeField] private float interactionDistance = 1.5f;
+    [SerializeField] private float interactionDistance = 2f;
 
-    [SerializeField] private GameObject interactable;
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
-            GetInteractable()?.Interact();
+            GetInteractable()?.Interact(transform);
     }
 
     public InteractableComponent GetInteractable()
     {
-        bool hit = Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, interactionDistance, -1, QueryTriggerInteraction.Ignore);
+        bool hit = Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, interactionDistance, -1, QueryTriggerInteraction.Collide);
         return hit ? hitInfo.collider.GetComponentInChildren<InteractableComponent>() : null;
     }
 }
