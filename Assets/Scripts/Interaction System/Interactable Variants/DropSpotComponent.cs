@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DropSpotComponent : MonoBehaviour
 {
 
     [SerializeField] private PickableObject useSpecificType;
-    [SerializeField] private PickableComponent heldItem;
+    private PickableComponent heldItem;
+
+    
+    [SerializeField] private UnityEvent onPickedEvent;
+    [SerializeField] private UnityEvent onDroppedEvent;
 
     public void DropOrPick(Transform interactor)
     {
@@ -12,6 +17,7 @@ public class DropSpotComponent : MonoBehaviour
         {
             heldItem.PickUp(interactor);
             heldItem = null;
+            onPickedEvent?.Invoke();
             return;
         }
 
@@ -23,10 +29,11 @@ public class DropSpotComponent : MonoBehaviour
             return;
 
         heldItem = currentPickable;
-        currentPickable.transform.SetParent(null);
-        currentPickable.transform.position = transform.position;
-        currentPickable.transform.rotation = transform.rotation;
-        currentPickable.EnableCollider();
+        heldItem.transform.SetParent(null);
+        heldItem.transform.position = transform.position;
+        heldItem.transform.rotation = transform.rotation;
         PickableComponent.pickedObject = null;
+        onDroppedEvent?.Invoke();
+
     }
 }

@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bddcd964c3a844647837fa9dc2b0db17, type: 3}
-  m_Name: Collect Coffee
+  m_Name: Clean window #3
   m_EditorClassIdentifier: 
-  Description: Get some coffee from the kitchen
+  followUpTasks:
+  - {fileID: 11400000, guid: cdecf5a0b01691a4c8955437776a70ef, type: 2}

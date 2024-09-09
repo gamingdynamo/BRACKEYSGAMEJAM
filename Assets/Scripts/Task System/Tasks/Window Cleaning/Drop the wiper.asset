@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddcd964c3a844647837fa9dc2b0db17, type: 3}
+  m_Name: Drop the wiper
+  m_EditorClassIdentifier: 
+  followUpTasks:
+  - {fileID: 11400000, guid: a49161d7a6032224096e3754197b0297, type: 2}
+  - {fileID: 11400000, guid: 9292837afb0c99c4281d053b3b6d472a, type: 2}
+  - {fileID: 11400000, guid: 92026702923a8924daf9f11c32279c59, type: 2}
+  - {fileID: 11400000, guid: 9372a059578ffc7479c10ed37f6260e7, type: 2}

@@ -7,8 +7,9 @@ public class InteractionComponent : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-            GetInteractable()?.Interact(transform);
+        var interactable = GetInteractable();
+        if (interactable && Input.GetKeyDown(KeyCode.F))
+            interactable.Interact(transform);
     }
 
     public InteractableComponent GetInteractable()
