@@ -90,6 +90,23 @@ public class ShipNav : MonoBehaviour
         
         
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("spike"))
+        {
+            //explotion effect
+            //ui display
+            Destroy(gameObject);
+
+        }
+        if (collision.gameObject.CompareTag("dock"))
+        {
+            //explotion effect
+            //ui display
+            Destroy(gameObject);
+
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("selector"))

@@ -9,15 +9,20 @@ public class LHController : MonoBehaviour
     private float xRotation = 0f;
     private Vector3 destPoint;
     public GameObject selector;
+    public GameObject lightProjector;
+    public bool fueledUp;
+    public fuelManager fuelManager;
 
     void Start()
     {
+        fueledUp = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     void Update()
     {
+        fuelManager.light_OnOf = true;// we will need to add in the player controller that it is false.
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -33,5 +38,16 @@ public class LHController : MonoBehaviour
         destPoint = hitInfo.point;
         Debug.DrawRay(destPoint, Vector3.up * 5, Color.red, 2);
         selector.transform.position = destPoint;
+        if(fueledUp)
+        { 
+            lightProjector.SetActive(true);
+            selector.SetActive(true);
+
+        }
+        else
+        {
+            lightProjector.SetActive(false);
+            selector.SetActive(false);
+        }
     }
 }
