@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bddcd964c3a844647837fa9dc2b0db17, type: 3}
-  m_Name: Drop the coffee
+  m_Script: {fileID: 11500000, guid: feeae90a74719ab4ea7c7637bcde51f0, type: 3}
+  m_Name: Fuel
   m_EditorClassIdentifier: 
-  followUpTasks:
-  - {fileID: 11400000, guid: 67e71bd42b525cd4b8617b210ddbb08f, type: 2}

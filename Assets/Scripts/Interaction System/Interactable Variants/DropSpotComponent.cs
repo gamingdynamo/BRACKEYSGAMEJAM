@@ -34,6 +34,5 @@ public class DropSpotComponent : MonoBehaviour
         heldItem.transform.rotation = transform.rotation;
         PickableComponent.pickedObject = null;
         onDroppedEvent?.Invoke();
-
     }
 }

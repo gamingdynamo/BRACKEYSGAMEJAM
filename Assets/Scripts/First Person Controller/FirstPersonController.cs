@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonController : GenericSingleton<FirstPersonController>
 {
     [SerializeField] private Camera cam;
     [SerializeField] private float sensitivity = 2;
@@ -10,7 +10,10 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float acceleration = 5;
     [SerializeField] private float moveSpeed = 6;
     [SerializeField] private float sprintSpeed = 12;
-    [SerializeField] private bool canSprint = true;
+
+    public bool canSprint = true;
+    public bool canMove = true;
+    public bool canLook = true;
 
     private float cameraRotationX = 0f;
     private float cameraRotationY = 0f;
@@ -18,21 +21,31 @@ public class FirstPersonController : MonoBehaviour
 
     private CharacterController controller;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        CalculateRotationValues();
+        CalculateMovementValues();
+        
+        controller.SimpleMove(canMove ? lerpedMove : Vector3.zero);
+    }
 
-        cameraRotationX += mouseX * sensitivity;
-        cameraRotationY -= mouseY * sensitivity;
-        cameraRotationX = cameraRotationX % 360;
-        cameraRotationY = Mathf.Clamp(cameraRotationY, -maxAngle, maxAngle);
+    private void LateUpdate()
+    {
+        Vector3 lookVector = new Vector3(cameraRotationY, cameraRotationX, 0);
+        cam.transform.localEulerAngles = canLook? lookVector : cam.transform.localEulerAngles;
+    }
+
+    private void CalculateMovementValues()
+    {
+        if (!canMove)
+            return;
 
         float hor_move = Input.GetAxis("Horizontal");
         float ver_move = Input.GetAxis("Vertical");
@@ -45,14 +58,20 @@ public class FirstPersonController : MonoBehaviour
         movement *= isSprinting ? sprintSpeed : moveSpeed;
 
         lerpedMove = Vector3.Lerp(lerpedMove, movement, 1 - Mathf.Exp(-(Mathf.Abs(acceleration) * Time.deltaTime)));
-        controller.SimpleMove(movement);
+
     }
-
-
-
-    private void LateUpdate()
+    private void CalculateRotationValues()
     {
-        Vector3 lookVector = new Vector3(cameraRotationY, cameraRotationX, 0);
-        cam.transform.localEulerAngles = lookVector;
+        if(!canLook)
+            return;
+
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        cameraRotationX += mouseX * sensitivity;
+        cameraRotationY -= mouseY * sensitivity;
+        cameraRotationX = cameraRotationX % 360;
+        cameraRotationY = Mathf.Clamp(cameraRotationY, -maxAngle, maxAngle);
+
     }
 }
