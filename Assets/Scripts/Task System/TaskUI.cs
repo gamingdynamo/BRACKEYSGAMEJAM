@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,19 +12,29 @@ public class TaskUI : MonoBehaviour
     private void Awake() => textMesh = GetComponent<TextMeshProUGUI>();
     public void UpdateText(Task task)
     {
-        if (textMesh == null || task == null)
+        if (textMesh == null)
             return;
 
-        List<Task> active = TaskSGT.Instance.GetActiveTasks();
-        List<Task> completed = TaskSGT.Instance.GetCompletedTasks();
-
         string result = string.Empty;
+        List<Task> active = TaskSGT.Instance.GetTaskByState(Task.State.ACTIVE);
+        List<Task> completed = TaskSGT.Instance.GetTaskByState(Task.State.COMPLETED);
 
-        foreach(Task t in active)
-            result += $"{t.Description}\n\n";
+        result += "Active:\n";
+
+        foreach (Task t in active)
+            result += $"{t.name}\n";
+
+        if (completed.Count == 0)
+        {
+            textMesh.text = result;
+            return;
+        }
+        
+
+        result += "Completed:\n";
 
         foreach (Task t in completed)
-            result += $"<s>{t.Description}</s>\n\n";
+            result += $"<s>{t.name}</s>\n";
 
         textMesh.text = result;
     }

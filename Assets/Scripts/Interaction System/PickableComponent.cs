@@ -7,10 +7,11 @@ public class PickableComponent : MonoBehaviour
 
     public PickableObject pickableObjectType;
     
-    [SerializeField] private UnityEvent animationEvent;
-    [SerializeField] private Vector3 pickOffset = new Vector3(0.2f, 0, 1.5f);
+    [SerializeField] private UnityEvent onPickedEvent;
 
-    public void Animate() => animationEvent?.Invoke();
+    [SerializeField] private Vector3 pickPositionOffset = new Vector3(0.2f, 0, 1.5f);
+    [SerializeField] private Vector3 pickRotationOffset = new Vector3(0, 0, 0);
+    public void Animate() => GetComponent<Animator>()?.SetTrigger("Animate");
 
     public void PickUp(Transform interactor)
     {
@@ -20,8 +21,9 @@ public class PickableComponent : MonoBehaviour
         DisableCollider();
         pickedObject = this;
         transform.SetParent(interactor);
-        transform.localPosition = pickOffset;  
-        transform.localRotation = Quaternion.identity;
+        transform.localPosition = pickPositionOffset;
+        transform.localEulerAngles = pickRotationOffset;
+        onPickedEvent?.Invoke();
     }
 
 
