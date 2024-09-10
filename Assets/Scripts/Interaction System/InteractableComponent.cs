@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class InteractableComponent : MonoBehaviour
 {
+    public string InteractableName = "Interactable";
+
     [SerializeField] private UnityEvent<Transform> interactionEvent;
     [SerializeField] private bool interactionEnabled = true;
 
