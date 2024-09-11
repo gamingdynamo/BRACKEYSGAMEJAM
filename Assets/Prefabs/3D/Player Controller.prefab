@@ -181,9 +181,12 @@ MonoBehaviour:
   acceleration: 10
   moveSpeed: 6
   sprintSpeed: 12
+  jumpHeight: 5
+  gravityForce: 20
   canSprint: 1
   canMove: 1
   canLook: 1
+  canJump: 1
 --- !u!1 &5689557938258593135
 GameObject:
   m_ObjectHideFlags: 0

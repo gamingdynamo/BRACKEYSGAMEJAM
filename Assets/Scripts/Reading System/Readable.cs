@@ -14,7 +14,6 @@ public class Readable : MonoBehaviour
         Cursor.visible = true;
         canvas.SetActive(true);
         FirstPersonController.Instance.canMove = false;
-        FirstPersonController.Instance.canLook = false;
     }
 
     public void HideReadable()
@@ -23,7 +22,6 @@ public class Readable : MonoBehaviour
         Cursor.visible = false;
         canvas.SetActive(false);
         FirstPersonController.Instance.canMove = true;
-        FirstPersonController.Instance.canLook = true;
 
     }
 }
