@@ -4068,7 +4068,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 0.5
   animate: 1
 --- !u!114 &223954839
 MonoBehaviour:
@@ -4807,7 +4806,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 0.5
   animate: 1
 --- !u!65 &293920648
 BoxCollider:
@@ -6582,7 +6580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0a50a9f133b4143a80696860eca87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractableName: Short Signal
+  InteractableName: Long Signal
   interactionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -8331,7 +8329,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 1
   animate: 1
 --- !u!114 &786175103
 MonoBehaviour:
@@ -10148,7 +10145,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 0.5
   animate: 1
 --- !u!114 &1021150073
 MonoBehaviour:
@@ -16742,7 +16738,7 @@ MonoBehaviour:
   delayedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: e298788ab216b06428c14da2338a672a, type: 2}
+      - m_Target: {fileID: 11400000, guid: 4481fea9c7f084d498f27b55e614da5b, type: 2}
         m_TargetAssemblyTypeName: Task, Assembly-CSharp
         m_MethodName: ComleteTask
         m_Mode: 1
@@ -16754,7 +16750,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 1
   animate: 1
 --- !u!114 &1764307315
 MonoBehaviour:
@@ -19827,7 +19822,7 @@ MonoBehaviour:
   delayedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: e298788ab216b06428c14da2338a672a, type: 2}
+      - m_Target: {fileID: 11400000, guid: 094d4d42627cecd48a7ac698324eb782, type: 2}
         m_TargetAssemblyTypeName: Task, Assembly-CSharp
         m_MethodName: ComleteTask
         m_Mode: 1
@@ -19839,7 +19834,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 1
   animate: 1
 --- !u!114 &2037609530
 MonoBehaviour:
@@ -22880,7 +22874,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delay: 1
   animate: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
