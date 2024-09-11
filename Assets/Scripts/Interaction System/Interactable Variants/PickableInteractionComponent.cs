@@ -10,7 +10,6 @@ public class PickableInteractionComponent : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] private UnityEvent interactEvent;
     [SerializeField] private UnityEvent delayedEvent;
-    [SerializeField] private float delay = 1;
     [SerializeField] private bool animate = true;
 
 
