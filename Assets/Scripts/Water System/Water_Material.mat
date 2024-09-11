@@ -74,7 +74,7 @@ Material:
     - _Distance: 0.5
     - _DstBlend: 0
     - _FoamAmount: 0.086
-    - _FoamBrightness: 1
+    - _FoamBrightness: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -88,7 +88,7 @@ Material:
     - _OpacityBalance: 2
     - _Parallax: 0.02
     - _Refraction: 0.5
-    - _Smoothness: -1
+    - _Smoothness: 1.41
     - _SmoothnessTextureChannel: 0
     - _Specular: 0.16
     - _SpecularHighlights: 1
@@ -102,8 +102,8 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DepthColor: {r: 0.2246796, g: 0.45548686, b: 0.4811321, a: 1}
+    - _DepthColor: {r: 0.12103952, g: 0.28270605, b: 0.3018868, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterColor: {r: 0.07756319, g: 0.69296074, b: 0.7830189, a: 1}
+    - _WaterColor: {r: 0.013082955, g: 0.3472691, b: 0.3962264, a: 1}
   m_BuildTextureStacks: []
