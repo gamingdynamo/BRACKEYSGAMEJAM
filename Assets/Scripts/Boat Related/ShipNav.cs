@@ -17,12 +17,19 @@ public class ShipNav : MonoBehaviour
     public bool selected;
     public GameObject signal;
     private Light signalLight;
+    public gameManager manager;
 
     public Camera cam;
 
+    private void Awake()
+    {
+        manager = FindObjectOfType<gameManager>().GetComponent<gameManager>();
+        manager.boatsSailing += 1;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        
         signalLight = signal.GetComponent<Light>();
         signalLight.color = Color.black;
         controled = false;
@@ -96,14 +103,17 @@ public class ShipNav : MonoBehaviour
         {
             //explotion effect
             //ui display
+            manager.LoseABoat();
             Destroy(gameObject);
 
         }
         if (collision.gameObject.CompareTag("dock"))
         {
-            //explotion effect
+
             //ui display
+            manager.WinABoat();
             Destroy(gameObject);
+            
 
         }
     }
