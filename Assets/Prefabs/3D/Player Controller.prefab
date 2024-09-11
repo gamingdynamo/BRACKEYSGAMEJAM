@@ -178,13 +178,10 @@ MonoBehaviour:
   cam: {fileID: 4057385607823759910}
   sensitivity: 2
   maxAngle: 80
-  acceleration: 10
+  acceleration: 3
   moveSpeed: 6
   sprintSpeed: 12
-  jumpHeight: 30
-  gravityForce: 20
   canSprint: 1
-  canMove: 1
 --- !u!1 &5689557938258593135
 GameObject:
   m_ObjectHideFlags: 0
