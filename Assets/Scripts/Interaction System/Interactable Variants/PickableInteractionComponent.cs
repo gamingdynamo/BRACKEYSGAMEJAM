@@ -10,7 +10,6 @@ public class PickableInteractionComponent : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] private UnityEvent interactEvent;
     [SerializeField] private UnityEvent delayedEvent;
-    [SerializeField] private float delay = 1;
     [SerializeField] private bool animate = true;
 
 
@@ -34,7 +33,14 @@ public class PickableInteractionComponent : MonoBehaviour
 
         IEnumerator delayedInteraction()
         {
-            yield return new WaitForSeconds(delay);
+            FirstPersonController.Instance.canMove = false;
+            yield return null;
+            while (currentPickable.IsAnimating())
+                yield return null;
+
+            // yield return new WaitForSeconds(delay);
+
+            FirstPersonController.Instance.canMove = true;
             delayedEvent?.Invoke();
         }
     }

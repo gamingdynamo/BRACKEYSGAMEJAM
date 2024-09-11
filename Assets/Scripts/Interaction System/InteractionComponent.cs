@@ -9,8 +9,7 @@ public class InteractionComponent : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textMesh;
 
     void Update()
-    {
-        
+    {     
         var interactable = GetInteractable();
 
         DisplayText(interactable);
@@ -30,7 +29,7 @@ public class InteractionComponent : MonoBehaviour
         if (textMesh == null)
             return;
 
-        textMesh.text = interactable ? $"{interactable.InteractableName} ({interactionKey.ToString()})" : string.Empty;
+        textMesh.text = interactable && interactable.InteractionEnabled ? $"{interactable.InteractableName} ({interactionKey.ToString()})" : string.Empty;
 
     }
 }

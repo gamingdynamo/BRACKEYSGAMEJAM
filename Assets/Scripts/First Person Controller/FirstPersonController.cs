@@ -1,7 +1,8 @@
+using System.Collections.Specialized;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonController : GenericSingleton<FirstPersonController>
 {
     [SerializeField] private Camera cam;
     [SerializeField] private float sensitivity = 2;
@@ -10,7 +11,11 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float acceleration = 5;
     [SerializeField] private float moveSpeed = 6;
     [SerializeField] private float sprintSpeed = 12;
-    [SerializeField] private bool canSprint = true;
+    [SerializeField] private float jumpHeight = 5;
+    [SerializeField] private float gravityForce = 5;
+
+    public bool canSprint = true;
+    public bool canMove = true;
 
     private float cameraRotationX = 0f;
     private float cameraRotationY = 0f;
@@ -18,22 +23,42 @@ public class FirstPersonController : MonoBehaviour
 
     private CharacterController controller;
 
-    private void Awake()
+    Vector3 gravity;
+    
+
+    public override void Awake()
     {
+        base.Awake();
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        CalculateRotationValues();
+        CalculateMovementValues();
+        CalculateGravity();
+        controller.Move(lerpedMove + gravity);
+    }
 
-        cameraRotationX += mouseX * sensitivity;
-        cameraRotationY -= mouseY * sensitivity;
-        cameraRotationX = cameraRotationX % 360;
-        cameraRotationY = Mathf.Clamp(cameraRotationY, -maxAngle, maxAngle);
+    private void LateUpdate()
+    {
+        Vector3 lookVector = new Vector3(cameraRotationY, cameraRotationX, 0);
+        cam.transform.localEulerAngles = lookVector;
+    }
 
+    private void CalculateGravity()
+    {
+        var gravityVector = (Vector3.down * gravityForce * Time.deltaTime);
+        gravity = controller.isGrounded ? gravityVector : gravity + gravityVector * Time.deltaTime;
+
+        bool jump = Input.GetKeyDown(KeyCode.Space) && canMove && controller.isGrounded;
+        if (jump)
+            gravity.y = jumpHeight * 0.001f;
+    }
+
+    private void CalculateMovementValues()
+    {
         float hor_move = Input.GetAxis("Horizontal");
         float ver_move = Input.GetAxis("Vertical");
 
@@ -43,16 +68,20 @@ public class FirstPersonController : MonoBehaviour
         movement = Vector3.ClampMagnitude(movement * 0.5f, 1);
         bool isSprinting = Input.GetKey(KeyCode.LeftShift) && canSprint;
         movement *= isSprinting ? sprintSpeed : moveSpeed;
-
+        movement *= Time.deltaTime;
         lerpedMove = Vector3.Lerp(lerpedMove, movement, 1 - Mathf.Exp(-(Mathf.Abs(acceleration) * Time.deltaTime)));
-        controller.SimpleMove(movement);
+        lerpedMove = canMove ? lerpedMove : Vector3.zero;
     }
-
-
-
-    private void LateUpdate()
+    private void CalculateRotationValues()
     {
-        Vector3 lookVector = new Vector3(cameraRotationY, cameraRotationX, 0);
-        cam.transform.localEulerAngles = lookVector;
+
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+       
+        cameraRotationX += mouseX * (canMove? sensitivity: 0);
+        cameraRotationY -= mouseY * (canMove ? sensitivity : 0);
+        cameraRotationX = cameraRotationX % 360;
+        cameraRotationY = Mathf.Clamp(cameraRotationY, -maxAngle, maxAngle);
+
     }
 }
