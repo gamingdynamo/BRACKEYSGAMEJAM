@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followUpTasks:
   - {fileID: 11400000, guid: e298788ab216b06428c14da2338a672a, type: 2}
+  - {fileID: 11400000, guid: 094d4d42627cecd48a7ac698324eb782, type: 2}
+  - {fileID: 11400000, guid: 4481fea9c7f084d498f27b55e614da5b, type: 2}

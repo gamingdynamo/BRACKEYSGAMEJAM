@@ -34,7 +34,16 @@ public class PickableInteractionComponent : MonoBehaviour
 
         IEnumerator delayedInteraction()
         {
-            yield return new WaitForSeconds(delay);
+            FirstPersonController.Instance.canLook = false;
+            FirstPersonController.Instance.canMove = false;
+            yield return null;
+            while (currentPickable.IsAnimating())
+                yield return null;
+
+            // yield return new WaitForSeconds(delay);
+
+            FirstPersonController.Instance.canLook = true;
+            FirstPersonController.Instance.canMove = true;
             delayedEvent?.Invoke();
         }
     }
