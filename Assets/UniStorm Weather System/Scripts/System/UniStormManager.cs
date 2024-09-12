@@ -43,7 +43,7 @@ namespace UniStorm
         }
 
         /// <summary>
-        /// Changes UniStorm's weather, regardless of conditions, with the transition speed to the weather type parameter. 
+        /// Changes UniStorm's weather, regardless of conditions, with the transition moveSpeed to the weather type parameter. 
         /// </summary>
         public void ChangeWeatherWithTransition(WeatherType weatherType)
         {

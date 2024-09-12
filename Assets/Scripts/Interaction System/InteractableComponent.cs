@@ -8,8 +8,8 @@ public class InteractableComponent : MonoBehaviour
     [SerializeField] private UnityEvent<Transform> interactionEvent;
     [SerializeField] private bool interactionEnabled = true;
 
-    public bool InteractionEnabled => interactionEnabled;
-
+    public bool IsInteractionEnabled => interactionEnabled;
+    public void SetName(string name) => InteractableName = name;
     public void EnableInteraction(bool state) => interactionEnabled = state;
     public void Interact(Transform interactor)
     {

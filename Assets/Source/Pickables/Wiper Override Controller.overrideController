@@ -7,7 +7,7 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wiper Override Controller
-  m_Controller: {fileID: 9100000, guid: 03b5968d30e12744883dae1716618af1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 23b86ef2b0ac79e4b90c758ad051f3bc, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 5906bf544c620854d82f052d5d2b682c, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: d8bc1d8dd6e9a254581ad31cc57f24b8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 84dbbb7087135df4f80448be905b4839, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 923c717fc7ec4964fb4c8ab6b880b322, type: 2}

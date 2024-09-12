@@ -54,7 +54,7 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
 
         bool jump = Input.GetKeyDown(KeyCode.Space) && canMove && controller.isGrounded;
         if (jump)
-            gravity.y = jumpHeight * 0.001f;
+            gravity.y = jumpHeight * Time.deltaTime;
     }
 
     private void CalculateMovementValues()

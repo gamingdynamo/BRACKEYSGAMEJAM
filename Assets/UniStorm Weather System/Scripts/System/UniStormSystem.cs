@@ -1489,7 +1489,7 @@ namespace UniStorm
                 CreatSunShafts();
             }
         }
-
+        //CREATE DU LOOOSER
         void CreatSunShafts()
         {
             m_SunShafts = PlayerCamera.gameObject.AddComponent<UniStormSunShafts>();

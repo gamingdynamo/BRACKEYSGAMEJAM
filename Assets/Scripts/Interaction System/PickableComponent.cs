@@ -6,7 +6,6 @@ public class PickableComponent : MonoBehaviour
     public static PickableComponent pickedObject;
 
     public PickableObject pickableObjectType;
-    [SerializeField] private bool animating;
 
     [SerializeField] private UnityEvent onPickedEvent;
 
@@ -21,10 +20,7 @@ public class PickableComponent : MonoBehaviour
         bool isDefaultLayer = animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("Default");
         return isTransitioning || !isDefaultLayer;
     }
-    private void Update()
-    {
-        animating = IsAnimating();
-    }
+
 
     public void PickUp(Transform interactor)
     {

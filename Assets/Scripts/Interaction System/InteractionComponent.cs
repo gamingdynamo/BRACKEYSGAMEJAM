@@ -29,7 +29,7 @@ public class InteractionComponent : MonoBehaviour
         if (textMesh == null)
             return;
 
-        textMesh.text = interactable && interactable.InteractionEnabled ? $"{interactable.InteractableName} ({interactionKey.ToString()})" : string.Empty;
+        textMesh.text = interactable && interactable.IsInteractionEnabled ? $"{interactable.InteractableName} ({interactionKey.ToString()})" : string.Empty;
 
     }
 }

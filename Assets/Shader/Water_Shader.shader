@@ -34,6 +34,7 @@ Shader "Custom/Water_Shader"
 		{
 			float3 worldPos;
 			float4 screenPos;
+            UNITY_FOG_COORDS(1)
 		};
 
 		uniform sampler2D _Normal;
@@ -75,6 +76,8 @@ Shader "Custom/Water_Shader"
 			o.Albedo = ( temp_output_130_0 + lerpResult123 ).rgb;
 			o.Smoothness = _Smoothness;
 			o.Alpha = ( temp_output_130_0 + ( saturate( ( temp_output_143_0 + _MinOpacity ) ) - _MaxOpacity ) );
+
+			UNITY_APPLY_FOG(i.fogCoord, o.Albedo);
 		}
 
 		ENDCG

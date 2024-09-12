@@ -11,8 +11,7 @@ public class PickableInteractionComponent : MonoBehaviour
     [SerializeField] private UnityEvent interactEvent;
     [SerializeField] private UnityEvent delayedEvent;
     [SerializeField] private bool animate = true;
-
-
+    [SerializeField] private bool destroy = false;
 
     public void Interact(Transform interactor)
     {
@@ -38,10 +37,13 @@ public class PickableInteractionComponent : MonoBehaviour
             while (currentPickable.IsAnimating())
                 yield return null;
 
-            // yield return new WaitForSeconds(delay);
-
             FirstPersonController.Instance.canMove = true;
             delayedEvent?.Invoke();
+            if (destroy)
+            {
+                PickableComponent.pickedObject = null;
+                Destroy(currentPickable.gameObject);
+            }
         }
     }
 }
