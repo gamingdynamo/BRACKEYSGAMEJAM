@@ -81,8 +81,6 @@ public class LighthouseController : MonoBehaviour
 
     private void Tween(bool state)
     {
-        FirstPersonController.Instance.controlledByLighthouse = state;
-        FirstPersonController.Instance.CanZoom = state;
         if (state)
         {
             StopAllCoroutines();
@@ -97,6 +95,11 @@ public class LighthouseController : MonoBehaviour
 
         IEnumerator Tween(Transform from, Transform to)
         {
+            FirstPersonController.Instance.CanZoom = state;
+
+            if (state)
+                FirstPersonController.Instance.controlledByLighthouse = state;
+
             float timer = 0;
             from.SetParent(to);
 
@@ -116,7 +119,10 @@ public class LighthouseController : MonoBehaviour
             from.localScale = Vector3.one;
 
             if(!state)
+            {
+                FirstPersonController.Instance.controlledByLighthouse = state;
                 FirstPersonController.Instance.ResetCameraOffset();
+            }
         }
     }
 
