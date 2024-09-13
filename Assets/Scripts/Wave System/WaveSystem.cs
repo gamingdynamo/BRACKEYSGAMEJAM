@@ -13,20 +13,7 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private List<Wave> waves = new List<Wave>();
 
 
-
-    public void StartPreCounter(float time)
-    {
-        onPreCounterStarted?.Invoke();
-        StartCoroutine(StartWaveDelayed());
-
-        IEnumerator StartWaveDelayed()
-        {
-            yield return new WaitForSeconds(time);
-            StartWaves();
-        }
-    }
-
-    public void StartWaves()
+    public void StartWaves(float precounter)
     {
         if (waves.Count == 0)
             return;
@@ -35,6 +22,9 @@ public class WaveSystem : MonoBehaviour
 
         IEnumerator StartWaves()
         {
+            onPreCounterStarted?.Invoke();
+            yield return new WaitForSeconds(precounter);
+
             for (int i = 0;  i < waves.Count; i++)
             {
                 onWaveStarted?.Invoke();

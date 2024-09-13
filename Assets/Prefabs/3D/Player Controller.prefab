@@ -183,8 +183,12 @@ MonoBehaviour:
   sprintSpeed: 12
   jumpHeight: 5
   gravityForce: 20
+  FieldOfViewNormal: 70
+  FieldOfViewZoomed: 15
+  controlledByLighthouse: 0
   canSprint: 1
   canMove: 1
+  canZoom: 0
 --- !u!1 &5689557938258593135
 GameObject:
   m_ObjectHideFlags: 0

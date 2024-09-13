@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class SafeZone : MonoBehaviour
 {
-    [SerializeField] private int saved;
-
-
     private void OnTriggerEnter(Collider other)
     {
         ShipNav ship = other.GetComponent<ShipNav>();
@@ -13,7 +10,6 @@ public class SafeZone : MonoBehaviour
             return;
 
         ShipNav.shipsSaved.Add(ship);
-
-        ship.gameObject.SetActive(false);
+        ship.savedEvent?.Invoke();
     }
 }

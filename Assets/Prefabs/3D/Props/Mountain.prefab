@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7176476963544344125}
   - component: {fileID: 7621822435903881859}
   - component: {fileID: 5607754108184108399}
+  - component: {fileID: 934283733567022902}
+  - component: {fileID: 3343485023324481962}
   m_Layer: 0
   m_Name: Mountain
   m_TagString: Untagged
@@ -61,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b04a125e543845644b317872dbe17a0b, type: 2}
+  - {fileID: 2100000, guid: e030ceaced82f1f4f9c7442618f8363b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +85,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &934283733567022902
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436988604170619205}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7399000072998618001, guid: f11803c8f62cc944eab5eda6ca1e3ba4, type: 3}
+--- !u!114 &3343485023324481962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436988604170619205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b247e9fa980b8ce47bd2a19e7ce48e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

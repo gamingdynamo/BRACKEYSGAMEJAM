@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,8 @@ public class ShipNav : MonoBehaviour
 {
     [SerializeField] private float moveSpeed =1f;
     [SerializeField] private float rotationSpeed = 1f;
-    [SerializeField] private UnityEvent collisionEvent;
+    public UnityEvent collisionEvent;
+    public UnityEvent savedEvent;
 
     [SerializeField] private UnityEvent onShipSelected;
     [SerializeField] private UnityEvent onShipDeselected;
@@ -60,9 +62,4 @@ public class ShipNav : MonoBehaviour
 
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        shipsCrashed.Add(this);
-        collisionEvent?.Invoke();
-    }
 }
