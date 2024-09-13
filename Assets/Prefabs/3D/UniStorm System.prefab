@@ -2217,11 +2217,11 @@ MonoBehaviour:
   SunObject: {fileID: 0}
   SunObjectMaterial: {fileID: 0}
   Hemisphere: 0
-  SunShadowType: 2
+  SunShadowType: 1
   MoonShadowType: 2
   LightningShadowType: 2
-  SunShadowResolution: 2
-  MoonShadowResolution: 1
+  SunShadowResolution: 3
+  MoonShadowResolution: 2
   LightningShadowResolution: 1
   SunShadowStrength: 0.9
   MoonShadowStrength: 0.75

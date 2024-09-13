@@ -20,6 +20,7 @@ public class LighthouseController : MonoBehaviour
     private float cameraRotationY = 0f;
 
     
+    
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -57,7 +58,7 @@ public class LighthouseController : MonoBehaviour
     public void EnableSpotlight(bool state)
     {
         Spotlight.gameObject.SetActive(state);
-        FirstPersonController.Instance.gameObject.SetActive(!state);
+        Tween(state);
     }
 
     private void LateUpdate()
@@ -76,6 +77,47 @@ public class LighthouseController : MonoBehaviour
         cameraRotationX = cameraRotationX % 360;
         cameraRotationY = Mathf.Clamp(cameraRotationY, angleRangeY.x, angleRangeY.y);
         cameraRotationX = Mathf.Clamp(cameraRotationX, angleRangeX.x, angleRangeX.y);
+    }
+
+    private void Tween(bool state)
+    {
+        FirstPersonController.Instance.controlledByLighthouse = state;
+        FirstPersonController.Instance.CanZoom = state;
+        if (state)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Tween(FirstPersonController.Instance.GetCameraTransform(), Spotlight.transform));
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(Tween(FirstPersonController.Instance.GetCameraTransform(), FirstPersonController.Instance.transform));
+        }
+
+
+        IEnumerator Tween(Transform from, Transform to)
+        {
+            float timer = 0;
+            from.SetParent(to);
+
+            Vector3 startPos = from.position;
+            Quaternion startRot = from.rotation;
+            while (timer < 1)
+            {
+                float t = timer / 1.0f;
+                from.position = Vector3.Lerp(startPos, to.position, t);
+                from.rotation = Quaternion.Lerp(startRot, to.rotation, t);
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            from.localPosition = Vector3.zero;
+            from.localEulerAngles = Vector3.zero;
+            from.localScale = Vector3.one;
+
+            if(!state)
+                FirstPersonController.Instance.ResetCameraOffset();
+        }
     }
 
     private ShipNav GetShipInView()

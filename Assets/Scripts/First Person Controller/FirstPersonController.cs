@@ -1,4 +1,4 @@
-using System.Collections.Specialized;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -14,8 +14,26 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
     [SerializeField] private float jumpHeight = 5;
     [SerializeField] private float gravityForce = 5;
 
+    [SerializeField] private float FieldOfViewNormal = 70f;
+    [SerializeField] private float FieldOfViewZoomed = 15f;
+    [HideInInspector] public bool controlledByLighthouse = false;
+
     public bool canSprint = true;
     public bool canMove = true;
+    [SerializeField] private bool canZoom = false;
+
+    public bool CanZoom 
+    { 
+        get { return canZoom; } 
+        set 
+        {
+            canZoom = value;
+
+            if (!value)
+                EnableZoom(false);
+        } 
+    }
+
 
     private float cameraRotationX = 0f;
     private float cameraRotationY = 0f;
@@ -23,18 +41,34 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
 
     private CharacterController controller;
 
-    Vector3 gravity;
-    
+    private Vector3 initialCameraOffset;
 
+    Vector3 gravity;
+
+    public Transform GetCameraTransform() => cam.transform;
+    public Camera GetCamera() => cam;
+
+    public void ResetCameraOffset() => cam.transform.localPosition = initialCameraOffset;
     public override void Awake()
     {
         base.Awake();
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
+        initialCameraOffset = cam.transform.localPosition;
+        cam.fieldOfView = FieldOfViewNormal;
     }
     // Update is called once per frame
     void Update()
     {
+        if (controlledByLighthouse)
+        {
+            controller.Move(Vector3.zero);
+            HandleZoom();
+            return;
+        }
+
+
+      
         CalculateRotationValues();
         CalculateMovementValues();
         CalculateGravity();
@@ -43,8 +77,45 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
 
     private void LateUpdate()
     {
+        if (controlledByLighthouse)
+            return;
+
         Vector3 lookVector = new Vector3(cameraRotationY, cameraRotationX, 0);
         cam.transform.localEulerAngles = lookVector;
+    }
+
+
+    private void HandleZoom()
+    {
+        if (!canZoom)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+            EnableZoom(true);
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+            EnableZoom(false);
+
+    }
+    private void EnableZoom(bool state)
+    {
+        StopAllCoroutines();
+        StartCoroutine(EnableZoom());
+
+        IEnumerator EnableZoom()
+        {
+            float timer = 0;
+            float startFOV = cam.fieldOfView;
+            float endFOV = state ? FieldOfViewZoomed : FieldOfViewNormal;
+            float trans = 0.5f;
+
+            while (timer < trans)
+            {
+                float t = timer / trans;
+                cam.fieldOfView = Mathf.Lerp(startFOV, endFOV, t);
+                timer += Time.deltaTime;
+                yield return null;
+            }
+        }
     }
 
     private void CalculateGravity()
@@ -82,6 +153,5 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
         cameraRotationY -= mouseY * (canMove ? sensitivity : 0);
         cameraRotationX = cameraRotationX % 360;
         cameraRotationY = Mathf.Clamp(cameraRotationY, -maxAngle, maxAngle);
-
     }
 }

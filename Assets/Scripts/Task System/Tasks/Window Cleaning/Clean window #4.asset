@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bddcd964c3a844647837fa9dc2b0db17, type: 3}
-  m_Name: Pick up wiper
+  m_Name: Clean window #4
   m_EditorClassIdentifier: 
   followUpTasks:
-  - {fileID: 11400000, guid: 12ccd4d7c66d2cf42aba1b51dfeef7be, type: 2}
-  - {fileID: 11400000, guid: 60ca5990874c5e84db7664dca34bb389, type: 2}
-  - {fileID: 11400000, guid: b4a57b71523eb8a45a9f918f530a6cbb, type: 2}
-  - {fileID: 11400000, guid: e9a88c736b1b0824e9fdefda08d0d7a1, type: 2}
+  - {fileID: 11400000, guid: cdecf5a0b01691a4c8955437776a70ef, type: 2}
