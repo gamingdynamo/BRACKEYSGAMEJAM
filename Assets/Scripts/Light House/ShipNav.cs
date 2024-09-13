@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +12,10 @@ public class ShipNav : MonoBehaviour
     [SerializeField] private UnityEvent onShipSelected;
     [SerializeField] private UnityEvent onShipDeselected;
 
+    public static List<ShipNav> allShips = new List<ShipNav>();
+    public static List<ShipNav> shipsCrashed = new List<ShipNav>();
+    public static List<ShipNav> shipsSaved = new List<ShipNav>();
+
     private bool isSelected;
     private Vector3 direction;
 
@@ -17,6 +23,7 @@ public class ShipNav : MonoBehaviour
     private void OnEnable() => LighthouseController.onControlChanged += OnSelect;
     private void OnDisable() => LighthouseController.onControlChanged -= OnSelect;
 
+    private void Start() => allShips.Add(this);
     void Update()
     {
         var lookRotation = Quaternion.LookRotation(direction);
@@ -55,6 +62,7 @@ public class ShipNav : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        shipsCrashed.Add(this);
         collisionEvent?.Invoke();
     }
 }

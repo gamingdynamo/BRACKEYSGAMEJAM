@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saved: 0
-  savedShips: []
 --- !u!1 &1818781386442750948
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +377,7 @@ MonoBehaviour:
   fuelDisplay: {fileID: 0}
   maxFuel: 100
   usagePerSecond: 3
-  fillAmountPerFuelCan: 80
+  fillAmountPerFuelCan: 100
   tick: 5
   onRefueledEvent:
     m_PersistentCalls:
@@ -1030,14 +1029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab9bef12c077a409a0765386c73784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spotlight: {fileID: 4426223977221652299}
-  cam: {fileID: 6680507213730608135}
+  Spotlight: {fileID: 0}
   sensitivity: 1
   angleRangeY: {x: -20, y: 80}
-  useXAngleRange: 0
   angleRangeX: {x: -180, y: 180}
-  normalFOV: 70
-  zoomedFOV: 15
 --- !u!1001 &1603526563591854109
 PrefabInstance:
   m_ObjectHideFlags: 0

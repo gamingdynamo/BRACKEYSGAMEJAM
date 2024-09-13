@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SafeZone : MonoBehaviour
 {
     [SerializeField] private int saved;
 
-    [SerializeField] private List<ShipNav> savedShips;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +12,7 @@ public class SafeZone : MonoBehaviour
         if (!ship)
             return;
 
-        savedShips.Add(ship);
+        ShipNav.shipsSaved.Add(ship);
 
         ship.gameObject.SetActive(false);
     }

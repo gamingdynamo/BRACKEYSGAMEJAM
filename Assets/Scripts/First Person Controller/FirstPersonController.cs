@@ -67,7 +67,6 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
             return;
         }
 
-
       
         CalculateRotationValues();
         CalculateMovementValues();
