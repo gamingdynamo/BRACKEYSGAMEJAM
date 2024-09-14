@@ -10,21 +10,25 @@ public class LighthouseController : MonoBehaviour
     [SerializeField] private float sensitivity = 2;
     [SerializeField] private Vector2 angleRangeY = new Vector2(0, 80);
     [SerializeField] private Vector2 angleRangeX = new Vector2(-90, 90);
+    [SerializeField] private float setDestinationTime = 2f;
 
-    [Header("Settings")]
-    private ShipNav controlledShip = null;
-    public static UnityAction<ShipNav> onControlChanged;
 
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent onShipSelected;
+    [SerializeField] private UnityEvent onShipSetDestination;
+    [SerializeField] private UnityEvent onLighthouseEntered;
+    [SerializeField] private UnityEvent onLighthouseExited;
 
     private float cameraRotationX = 0f;
     private float cameraRotationY = 0f;
 
-    
-    
-    private void Awake()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+
+     private float setDestinationTimer = 0f;
+
+    private ShipNav controlledShip = null;
+    public static UnityAction<ShipNav> onControlChanged;
+
     void Update()
     {
         if (!Spotlight.gameObject.activeSelf)
@@ -35,28 +39,44 @@ public class LighthouseController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
             EnableSpotlight(false);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            var ship = GetShipInView();
-            var foundPosition = TryGetRaycastPosition(out Vector3 position);
+        var ship = GetShipInView();
 
-            if (ship && ship != controlledShip)
+        if (ship && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (ship != controlledShip)
             {
                 controlledShip = ship;
                 onControlChanged?.Invoke(ship);
                 return;
             }
-
-            if (controlledShip && foundPosition)
-                controlledShip.SetDirection(position);
         }
 
+        bool isSettingDestination = Input.GetKey(KeyCode.Mouse0) && ship == null && controlledShip != null;
+        setDestinationTimer = isSettingDestination ?
+            Mathf.Min(setDestinationTimer + Time.deltaTime, setDestinationTime +1) :
+            Mathf.Max(setDestinationTimer - Time.deltaTime, 0);
+
+        bool canSetDestination = setDestinationTimer >= setDestinationTime;
+        if (canSetDestination && controlledShip != null)
+        {
+            bool foundPosition = TryGetRaycastPosition(out Vector3 position);
+            if (foundPosition)
+            {
+                controlledShip.SetDirection(position);
+                setDestinationTimer = 0;
+                onShipSetDestination?.Invoke();
+                return;
+            }
+        }
     }
 
-    
+
 
     public void EnableSpotlight(bool state)
     {
+        if (!state && !FirstPersonController.Instance.controlledByLighthouse)
+            return;
+
         Spotlight.gameObject.SetActive(state);
         Tween(state);
     }
@@ -98,7 +118,10 @@ public class LighthouseController : MonoBehaviour
             FirstPersonController.Instance.CanZoom = state;
 
             if (state)
+            {
                 FirstPersonController.Instance.controlledByLighthouse = state;
+                onLighthouseEntered?.Invoke();
+            }
 
             float timer = 0;
             from.SetParent(to);
@@ -122,6 +145,7 @@ public class LighthouseController : MonoBehaviour
             {
                 FirstPersonController.Instance.controlledByLighthouse = state;
                 FirstPersonController.Instance.ResetCameraOffset();
+                onLighthouseExited?.Invoke();
             }
         }
     }

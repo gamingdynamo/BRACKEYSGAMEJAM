@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e134e8ee0938749a6df05967e831f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saved: 0
 --- !u!54 &588320702218084125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1060,7 +1059,21 @@ MonoBehaviour:
   Spotlight: {fileID: 0}
   sensitivity: 1
   angleRangeY: {x: -20, y: 80}
-  angleRangeX: {x: -180, y: 180}
+  angleRangeX: {x: -100, y: 100}
+  setDestinationTime: 1
+  onShipSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  onShipSetDestination:
+    m_PersistentCalls:
+      m_Calls: []
+  onLighthouseEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  onLighthouseExited:
+    m_PersistentCalls:
+      m_Calls: []
+  setDestinationTimer: 0
 --- !u!1001 &1603526563591854109
 PrefabInstance:
   m_ObjectHideFlags: 0

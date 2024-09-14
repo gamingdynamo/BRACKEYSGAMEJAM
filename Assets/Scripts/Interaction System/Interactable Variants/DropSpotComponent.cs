@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class DropSpotComponent : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class DropSpotComponent : MonoBehaviour
 
         heldItem = currentPickable;
         heldItem.transform.SetParent(null);
+        SceneManager.MoveGameObjectToScene(heldItem.gameObject,SceneManager.GetActiveScene());
         heldItem.transform.position = transform.position;
         heldItem.transform.rotation = transform.rotation;
         PickableComponent.pickedObject = null;

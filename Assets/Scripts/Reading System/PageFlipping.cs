@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,6 +12,7 @@ public class PageFlipping : MonoBehaviour
 {
     [SerializeField] private int pageIndex = 0;
 
+    [SerializeField] private UnityEvent onPageFlipped;
 
     private Coroutine rotationTween;
 
@@ -27,6 +30,8 @@ public class PageFlipping : MonoBehaviour
 
         ChangeRotation(pages[pageIndex], 90, 1);
         pageIndex++;
+        onPageFlipped?.Invoke();
+
     }
     public void FlipPageBackward()
     {
@@ -40,6 +45,8 @@ public class PageFlipping : MonoBehaviour
 
         ChangeRotation(pages[pageIndex-1], 0, 1);
         pageIndex--;
+        onPageFlipped?.Invoke();
+
 
     }
 

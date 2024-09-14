@@ -5,6 +5,8 @@ using UnityEngine;
 public class FirstPersonController : GenericSingleton<FirstPersonController>
 {
     [SerializeField] private Camera cam;
+    [SerializeField] private Animator camAnimator;
+
     [SerializeField] private float sensitivity = 2;
     [SerializeField] private float maxAngle = 90;
 
@@ -37,6 +39,10 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
 
     private float cameraRotationX = 0f;
     private float cameraRotationY = 0f;
+    private float hor_move = 0f;
+    private float ver_move = 0f;
+    private bool isSprinting = false;
+
     private Vector3 lerpedMove;
 
     private CharacterController controller;
@@ -67,12 +73,13 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
             return;
         }
 
-      
+        UpdateAnimator();
         CalculateRotationValues();
         CalculateMovementValues();
         CalculateGravity();
         controller.Move(lerpedMove + gravity);
     }
+
 
     private void LateUpdate()
     {
@@ -84,6 +91,12 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
     }
 
 
+    private void UpdateAnimator()
+    {
+        Vector2 input = new Vector2(hor_move, ver_move);
+        camAnimator.SetBool("Walk", input.magnitude > 0);
+        camAnimator.SetBool("Run", isSprinting);
+    }
     private void HandleZoom()
     {
         if (!canZoom)
@@ -129,14 +142,14 @@ public class FirstPersonController : GenericSingleton<FirstPersonController>
 
     private void CalculateMovementValues()
     {
-        float hor_move = Input.GetAxis("Horizontal");
-        float ver_move = Input.GetAxis("Vertical");
+        hor_move = Input.GetAxis("Horizontal");
+        ver_move = Input.GetAxis("Vertical");
+        isSprinting = Input.GetKey(KeyCode.LeftShift) && canSprint;
 
         Vector3 vertical_direction = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up);
         Vector3 horizontal_direction = Vector3.ProjectOnPlane(cam.transform.right, Vector3.up);
         Vector3 movement = horizontal_direction * hor_move + vertical_direction * ver_move;
         movement = Vector3.ClampMagnitude(movement * 0.5f, 1);
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && canSprint;
         movement *= isSprinting ? sprintSpeed : moveSpeed;
         movement *= Time.deltaTime;
         lerpedMove = Vector3.Lerp(lerpedMove, movement, 1 - Mathf.Exp(-(Mathf.Abs(acceleration) * Time.deltaTime)));

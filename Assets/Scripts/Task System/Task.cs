@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Apple;
+using System.Xml.Schema;
+
 
 
 #if UNITY_EDITOR
@@ -42,6 +44,7 @@ public class TaskEditor : Editor
                 return;
 
             self.destination = sceneCam.transform.position;
+            AssetDatabase.SaveAssets();
         }
     }
 }

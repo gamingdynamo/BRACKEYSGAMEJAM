@@ -21,6 +21,7 @@ public class LighthouseEngine : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private int fuelAmount = 100;
 
+    private bool isEmpty = false;
     
 
     private InteractableComponent interactable => GetComponent<InteractableComponent>();
@@ -34,10 +35,14 @@ public class LighthouseEngine : MonoBehaviour
     {
         while (true)
         {
+            
             fuelAmount = Mathf.Max(fuelAmount - usagePerSecond, 0);
 
-            if (fuelAmount <= 0)
+            if (fuelAmount <= 0 && !isEmpty)
+            {
+                isEmpty = true;
                 onEmptyEvent?.Invoke();
+            }
 
             UpdateFuelDisplay();
             yield return new WaitForSeconds(tick);
@@ -51,7 +56,7 @@ public class LighthouseEngine : MonoBehaviour
     {
         if (fillAmountPerFuelCan <= 0)
             return;
-         
+        isEmpty = false;
         fuelAmount = Mathf.Min(fuelAmount + fillAmountPerFuelCan, maxFuel);
         onRefueledEvent?.Invoke();
     }
