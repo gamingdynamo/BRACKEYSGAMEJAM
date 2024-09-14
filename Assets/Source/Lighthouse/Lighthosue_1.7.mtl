@@ -1,0 +1,170 @@
+# Blender 3.4.1 MTL File: 'Lighthosue.blend'
+# www.blender.org
+
+newmtl Beam
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/Beam/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/Beam/Unnamed_R.png
+map_refl D:/Brackeys_Game_Jam/Textures/Beam/Unnamed_M.png
+
+newmtl DoorBig
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/Door/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/Door/Unnamed_R.png
+map_refl D:/Brackeys_Game_Jam/Textures/Door/Unnamed_M.png
+
+newmtl GREEN_WOOD
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/tile_GenericWood/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/tile_GenericWood/Unnamed_R.png
+
+newmtl Generic_Metal
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/tile_GenericMetal/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/tile_GenericMetal/Unnamed_R.png
+map_refl D:/Brackeys_Game_Jam/Textures/tile_GenericMetal/Unnamed_M.png
+
+newmtl Leuchturm_metal
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.012983 0.011612 0.017642
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Leuchturm_wall
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.642168 0.661862 0.622820
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Leuchturm_wall_greenpaint
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.010591 0.017512 0.013745
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/Brackeys_Game_Jam/Pixel_Density )10x10/160x160.png
+
+newmtl Reeling
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/Reeling/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/Reeling/Unnamed_R.png
+map_refl D:/Brackeys_Game_Jam/Textures/Reeling/Unnamed_M.png
+
+newmtl Reeling.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/reeling_1/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/reeling_1/Unnamed_R.png
+map_refl D:/Brackeys_Game_Jam/Textures/reeling_1/Unnamed_M.png
+
+newmtl Reeling.002
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/tile_Rust_40x40/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/tile_Rust_40x40/Unnamed_R.png
+map_refl D:/Brackeys_Game_Jam/Textures/tile_Rust_40x40/Unnamed_C.png
+
+newmtl Roof
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/Roof/Unnamed_C.png
+map_refl D:/Brackeys_Game_Jam/Textures/Roof/Unnamed_M.png
+
+newmtl Roof1.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/roof_womdw/Unnamed_C.png
+map_refl D:/Brackeys_Game_Jam/Textures/roof_womdw/Unnamed_M.png
+
+newmtl beton
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/decke_Beton/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/decke_Beton/Unnamed_R.png
+
+newmtl floor_Wood
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/floor_Wood_2.0/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/floor_Wood_2.0/Unnamed_R.png
+
+newmtl stairs
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:/Brackeys_Game_Jam/Textures/stairs/Unnamed_C.png
+map_Ns D:/Brackeys_Game_Jam/Textures/stairs/Unnamed_R.png

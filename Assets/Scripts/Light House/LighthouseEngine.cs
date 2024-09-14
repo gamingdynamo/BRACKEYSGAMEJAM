@@ -9,6 +9,7 @@ public class LighthouseEngine : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fuelDisplay;
 
     [Header("Settings")]
+    [SerializeField] private int startingFuel = 0;
     [SerializeField] private int maxFuel = 100;
     [SerializeField] private int usagePerSecond = 1;
     [SerializeField] private int fillAmountPerFuelCan = 35;
@@ -28,6 +29,8 @@ public class LighthouseEngine : MonoBehaviour
 
     private void Start()
     {
+        fuelAmount = Mathf.Clamp(startingFuel, 0, maxFuel);
+
         StartCoroutine(FuelTick());
     }
 
@@ -59,5 +62,6 @@ public class LighthouseEngine : MonoBehaviour
         isEmpty = false;
         fuelAmount = Mathf.Min(fuelAmount + fillAmountPerFuelCan, maxFuel);
         onRefueledEvent?.Invoke();
+        UpdateFuelDisplay();
     }
 }

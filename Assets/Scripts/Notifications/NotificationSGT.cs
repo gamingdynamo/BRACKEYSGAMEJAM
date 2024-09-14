@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NotificationSGT : GenericSingleton<NotificationSGT>
 {
@@ -8,6 +9,7 @@ public class NotificationSGT : GenericSingleton<NotificationSGT>
     [Header("Settings")]
     [SerializeField] private float _notificationDisplayTime;
     [SerializeField] private float _notificationBlendTime;
+    [SerializeField] private UnityEvent onNotificationAdded;
 
 
     public void AddNotification(string message)
@@ -24,8 +26,9 @@ public class NotificationSGT : GenericSingleton<NotificationSGT>
             Destroy(notification);
             return;
         }
-
         notifyComponent.StartNotification(message, _notificationDisplayTime, _notificationBlendTime);
+        onNotificationAdded?.Invoke();
+
     }
 }
 

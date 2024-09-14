@@ -10,6 +10,7 @@ public class AudioEventSystem : ScriptableObject
     public void SetUIVolume(float volume) => AudioSGT.Instance.SetUIVolume(volume);
     public void SetAtmosVolume(float volume) => AudioSGT.Instance.SetAtmosVolume(volume);
 
+
     public void PlayUISound(AudioClip clip) => AudioSGT.Instance.PlayUIClip(clip);
     public void PlayMusic(AudioClip clip) => AudioSGT.Instance.PlayMusicClip(clip);
     public void PlayAtmos(AudioClip clip) => AudioSGT.Instance.PlayAtmosClip(clip);
