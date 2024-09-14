@@ -1,0 +1,193 @@
+# Blender 3.4.1 MTL File: 'Lighthosue.blend'
+# www.blender.org
+
+newmtl Beam
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Beam_C.png
+map_Ns Beam_R.png
+map_refl Unnamed_M.png
+
+newmtl DoorBig
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+map_refl Unnamed_M.png
+
+newmtl GREEN_WOOD
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+
+newmtl Generic_Metal
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+map_refl Unnamed_M.png
+
+newmtl Green_wood
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd 40x40.png
+
+newmtl Lighthouse_LowerWall
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+map_refl Unnamed_M.png
+
+newmtl Lighthouse_Metal
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Lighthouse_metal_C.png
+map_Ns Lighthouse_metal_R.png
+map_refl Lighthouse_metal_M.png
+
+newmtl Lighthouse_Wall_Upper
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+map_refl Unnamed_M.png
+
+newmtl Material.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd 160x160.png
+
+newmtl Reeling
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+map_refl Unnamed_M.png
+
+newmtl Reeling.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+map_refl Unnamed_M.png
+
+newmtl Reeling.002
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+map_refl Unnamed_C.png
+
+newmtl Roof
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_refl Unnamed_M.png
+
+newmtl Roof1.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_refl Unnamed_M.png
+
+newmtl beton
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+
+newmtl floor_Wood
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+
+newmtl stairs
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Unnamed_C.png
+map_Ns Unnamed_R.png
+
+newmtl texture_Wall
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Unnamed_C.png
+map_Ns Unnamed_RM.png
